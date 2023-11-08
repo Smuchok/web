@@ -1,0 +1,40 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <h3>Всі категорії</h4>
+    </div>
+    
+    <div class="row">
+
+        {% for cat in cats %}
+        <div class="col-sm-6 col-md-6 col-lg-3">
+            <div class="card box-shadow">
+                <div class="card-body">
+                    <div class="title-group d-flex">
+                        <!-- <a href="#"> -->
+                            <h3 class="card-title pricing-card-title">{{ cat.name }}</h3>
+                        <!-- </a> -->
+                    </div>
+                    <p class="pricing-card-title">
+                        {% if cat.have_limit %}
+                        Обмежено для продажу
+                        {% else %}
+                        Необмежено для продажу
+                        {% endif %}
+                    </p>
+
+                    <!-- <p>Категорія: {{ g.category }}</p> -->
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

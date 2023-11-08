@@ -1,0 +1,38 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+            <!-- Форма -->
+            <form action="{% url 'add_new_cat' %}" method="post" id="cat_form">
+                {% csrf_token %}
+
+                <div class="form-error">{{ form.non_field_errors }}</div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="{{form.last_name.id_for_label}}">{{form.name.label}}</label>
+                        {{form.name}}
+                    </div>
+                </div>
+              
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="{{form.first_name.id_for_label}}">{{form.have_limit.label}}</label>
+                        {{form.have_limit}}
+                    </div>
+                </div>
+
+                <div class="card box-shadow">
+                    <button form="cat_form" type="submit" name="send_other" class="btn btn-primary">Додати нову категорію</button>
+                </div>
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

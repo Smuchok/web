@@ -1,0 +1,36 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <h3>Всі товари</h4>
+    </div>
+    
+    <div class="row">
+
+        {% for g in goods %}
+        <div class="col-sm-6 col-md-6 col-lg-3">
+            <div class="card box-shadow">
+                <!-- <a href="{{ c.get_absolute_url }}">
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Photo preview: {{c.photo_preview}}" style="height: 225px; width: 100%; display: block;" 
+                    src="/static/main/img/houses/{{c.photo}}" data-holder-rendered="true">
+                </a> -->
+                <div class="card-body">
+                    <div class="title-group d-flex">
+                        <h4 class="card-title pricing-card-title">{{ g.name }}</h3>
+                    </div>
+                    <h5 class="pricing-card-title">₴ {{ g.price }}</h4>
+
+                    <p>Категорія: {{ g.category }}</p>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}
